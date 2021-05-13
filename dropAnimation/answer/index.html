@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Image Drop Effects</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<section></section>
+		<script>
+			let images = [
+				'url("img1.jpg")',
+				'url("img2.jpg")',
+				'url("img3.jpg")',
+				'url("img4.jpg")',
+				'url("img5.jpg")',
+				'url("img6.jpg")',
+			];
+
+			function dropImage(){
+				let section = document.querySelector('section')
+				let drop = document.createElement('span');
+				drop.style.left = Math.random() * innerWidth + 'px';
+				drop.style.top = Math.random() * innerHeight + 'px';
+
+				let bg = images[Math.floor(Math.random() * images.length)];
+
+				let size = Math.random() * 200;
+				drop.style.width  = size+'px';
+				drop.style.height  = size+'px';
+				drop.style.backgroundImage  = bg;
+
+				section.appendChild(drop);
+
+				setTimeout(() =>{
+					drop.remove()
+				},6000)				
+
+			}
+			setInterval(dropImage, 50);
+		</script>
+	</body>
+</html>
